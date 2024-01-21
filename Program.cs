@@ -8,22 +8,17 @@ namespace Modul7OOP
 {
     internal class Program
     {
-        class Employee
-        {
-            public string Name;
-            public int Age;
-            public int Salary;
-        }
+        class Food { }
 
-        class ProjectManager: Employee
-        {
-            public string ProjectName;
-        }
+        class Fruit: Food { }
 
-        class Developer: Employee
-        {
-            private string ProgrammingLanguage;
-        }
+        class Vegetable: Food { }
+
+        class Apple : Fruit { }
+        class Banana : Fruit { }
+        class Pear : Fruit { }
+        class Potato: Vegetable { }
+        class Carrot : Vegetable { }
 
         static void Main(string[] args)
         {
