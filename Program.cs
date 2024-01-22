@@ -8,17 +8,21 @@ namespace Modul7OOP
 {
     internal class Program
     {
-        class Food { }
+        class Obj
+        {
+            private string name;
+            private string owner;
+            private int length;
+            private int count;
 
-        class Fruit: Food { }
-
-        class Vegetable: Food { }
-
-        class Apple : Fruit { }
-        class Banana : Fruit { }
-        class Pear : Fruit { }
-        class Potato: Vegetable { }
-        class Carrot : Vegetable { }
+            public Obj(string name, string ownerName, int objLength, int count)
+            {
+                this.name = name;
+                owner = ownerName;
+                length = objLength;
+                this.count = count;
+            }
+        }
 
         static void Main(string[] args)
         {
