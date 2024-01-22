@@ -14,6 +14,11 @@ namespace Modul7OOP
         {
             Name = name;
         }
+
+        public virtual void Display()
+        {
+            Console.WriteLine("Метод класса BaseClass");
+        }
     }
 
     class DerivedClass : BaseClass
@@ -31,6 +36,11 @@ namespace Modul7OOP
         {
             Description = description;
             Counter = counter;
+        }
+
+        public override void Display()
+        {
+            Console.WriteLine("Метод класса DerivedClass");
         }
     }
 
