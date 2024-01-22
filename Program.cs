@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,12 @@ namespace Modul7OOP
     class BaseClass
     {
         protected string Name;
+
+        public virtual int Counter
+        {
+            get;
+            set;
+        }
 
         public BaseClass(string name)
         {
@@ -25,7 +32,22 @@ namespace Modul7OOP
     {
         public string Description;
 
-        public int Counter;
+        //private int Counter;
+
+        public override int Counter 
+        {
+            get
+            {
+                return Counter;
+            }
+            set
+            {
+                if (Counter >= 0)
+                {
+                    Counter = value;
+                }
+            }      
+        }
 
         public DerivedClass(string name, string description): base(name)
         {
