@@ -22,7 +22,7 @@ namespace Modul7OOP
         }
     }
 
-    class D : A
+    class D : B
     {
         public new void Display()
         {
@@ -50,17 +50,13 @@ namespace Modul7OOP
     {
         static void Main(string[] args)
         {
-            A a = new A();
-            B b = new B();
-            C c = new C();
+            D d = new D();
+            E e = new E();
 
-            a.Display();    // метод класса A
-            b.Display();    // метод класса B
-            ((A)b).Display();   // метод класса B
-
-            c.Display();    // метод класса C
-            ((A)c).Display();   // метод класса B
-            ((B)c).Display();	// метод класса B
+            d.Display();
+            ((A)e).Display();
+            ((B)d).Display();
+            ((A)d).Display();
 
             Console.ReadKey();
         }
