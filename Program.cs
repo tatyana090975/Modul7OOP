@@ -7,42 +7,18 @@ using System.Threading.Tasks;
 
 namespace Modul7OOP
 {
-    class A
+    class Vector
     {
-        public virtual void Display()
-        {
-            Console.WriteLine("A");
-        }
-    }
-    class B : A
-    {
-        public new void Display()
-        {
-            Console.WriteLine("B");
-        }
-    }
+        public int X;
+        public int Y;
 
-    class D : B
-    {
-        public new void Display()
+        public Vector Add(Vector second)
         {
-            Console.WriteLine("D");
-        }
-    }
-
-    class C : A
-    {
-        public override void Display()
-        {
-            Console.WriteLine("C");
-        }
-    }
-
-    class E : C
-    {
-        public new void Display()
-        {
-            Console.WriteLine("E");
+            return new Vector
+            {
+                X = this.X + second.X,
+                Y = this.Y + second.Y
+            };
         }
     }
 
@@ -50,13 +26,12 @@ namespace Modul7OOP
     {
         static void Main(string[] args)
         {
-            D d = new D();
-            E e = new E();
+            Vector a = new Vector { X = 3, Y = 5 };
+            Vector b = new Vector { X = 7, Y = 13 };
 
-            d.Display();
-            ((A)e).Display();
-            ((B)d).Display();
-            ((A)d).Display();
+            Vector c = a.Add(b);
+
+            Console.WriteLine($"{c.X}, {c.Y}");
 
             Console.ReadKey();
         }
