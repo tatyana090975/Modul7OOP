@@ -12,6 +12,15 @@ namespace Modul7OOP
         public int X;
         public int Y;
 
+        public static Vector operator +(Vector a, Vector b)
+        {
+            return new Vector
+            {
+                X = a.X + b.X,
+                Y = a.Y + b.Y
+            };
+        }
+        /*
         public Vector Add(Vector second)
         {
             return new Vector
@@ -19,7 +28,7 @@ namespace Modul7OOP
                 X = this.X + second.X,
                 Y = this.Y + second.Y
             };
-        }
+        }*/
     }
 
     class Program
@@ -29,7 +38,7 @@ namespace Modul7OOP
             Vector a = new Vector { X = 3, Y = 5 };
             Vector b = new Vector { X = 7, Y = 13 };
 
-            Vector c = a.Add(b);
+            Vector c = a + b;
 
             Console.WriteLine($"{c.X}, {c.Y}");
 
