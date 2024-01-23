@@ -7,20 +7,42 @@ using System.Threading.Tasks;
 
 namespace Modul7OOP
 {
-    class BaseClass
+    class A
     {
         public virtual void Display()
         {
-            Console.WriteLine("Метод класса BaseClass");
+            Console.WriteLine("A");
+        }
+    }
+    class B : A
+    {
+        public new void Display()
+        {
+            Console.WriteLine("B");
         }
     }
 
-    class DerivedClass : BaseClass
+    class D : A
+    {
+        public new void Display()
+        {
+            Console.WriteLine("D");
+        }
+    }
+
+    class C : A
     {
         public override void Display()
         {
-            base.Display();
-            Console.WriteLine("Метод класса DerivedClass");
+            Console.WriteLine("C");
+        }
+    }
+
+    class E : C
+    {
+        public new void Display()
+        {
+            Console.WriteLine("E");
         }
     }
 
@@ -28,8 +50,17 @@ namespace Modul7OOP
     {
         static void Main(string[] args)
         {
-            DerivedClass obj = new DerivedClass();
-            obj.Display();
+            A a = new A();
+            B b = new B();
+            C c = new C();
+
+            a.Display();    // метод класса A
+            b.Display();    // метод класса B
+            ((A)b).Display();   // метод класса B
+
+            c.Display();    // метод класса C
+            ((A)c).Display();   // метод класса B
+            ((B)c).Display();	// метод класса B
 
             Console.ReadKey();
         }
