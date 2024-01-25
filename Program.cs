@@ -7,39 +7,14 @@ using System.Threading.Tasks;
 
 namespace Modul7OOP
 {
-    class Obj
+    class Helper
     {
-        public string Name;
-        public string Description;
-        public static int MaxValue = 200;
-    }
-
-    abstract class ComputerPart
-    {
-        public abstract void Work();
-    }
-
-    class Processor : ComputerPart
-    {
-        public override void Work()
+        public static void Swap(int num1, int num2)
         {
-            
-        }
-    }
-
-    class MotherBoard : ComputerPart
-    {
-        public override void Work()
-        {
-            
-        }
-    }
-
-    class GraphicCard : ComputerPart
-    {
-        public override void Work()
-        {
-            
+            int num = num1;
+            num1 = num2;
+            num2 = num;
+            //Console.WriteLine($"num1 = {num1}, num2 = {num2}");
         }
     }
 
@@ -47,7 +22,13 @@ namespace Modul7OOP
     {
         static void Main(string[] args)
         {
-            
+            int num1 = 3;
+            int num2 = 58;
+
+            Helper.Swap(num1, num2);
+
+            Console.WriteLine(num1); 
+            Console.WriteLine(num2); 
 
             Console.ReadKey();
         }
