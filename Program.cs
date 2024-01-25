@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace Modul7OOP
 {
+    class Obj
+    {
+        public string Name;
+        public string Description;
+        public static int MaxValue = 200;
+    }
+
     abstract class ComputerPart
     {
         public abstract void Work();
