@@ -11,7 +11,6 @@ namespace Modul7OOP
     {
         public string Name;
         public string Description;
-
         public static string Parent;
         public static int DaysInWeek;
         public static int MaxValue;
