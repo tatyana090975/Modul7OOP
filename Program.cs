@@ -8,22 +8,28 @@ using System.Threading.Tasks;
 
 namespace Modul7OOP
 {
+    class Car<T>
+    {
+        public T Engine;
+    }
     
+    class ElectricEngine
+    {
+
+    }
+
+    class GasEngine
+    {
+
+    }
 
     class Program
     {
-        class Order<T>
-        {
-            public T Number;
-
-            public string Description;
-
-        }
+       
         
         static void Main(string[] args)
         {
-            Order<int> order1 = new Order<int>();
-            order1.Number = 1;
+            
            
             Console.ReadKey();
         }
