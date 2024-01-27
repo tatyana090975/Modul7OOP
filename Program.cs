@@ -10,7 +10,7 @@ namespace Modul7OOP
 {
     class Car<T>
     {
-        public T Engine;
+        public T Engine = default(T); //значение по умолчанию null для ссылочных типов и 0 для значимых типов
     }
     
     class ElectricEngine
