@@ -8,42 +8,28 @@ using System.Threading.Tasks;
 
 namespace Modul7OOP
 {
-    class Record<T1, T2>
-    {
-        public T1 Id;
-        public T2 Note;
-        public DateTime Date;
-    }
-    class Car<T1>
-    {
-        public T1 Engine = default(T1); //значение по умолчанию null для ссылочных типов и 0 для значимых типов
-        public virtual void ChangePart<T2>(T2 newPart) {}
-    }
     
-    class ElectricEngine
+    class Car<T1> 
+        where T1 : Engine
     {
+        public T1 Engine;
+        public virtual void ChangePart<T2>(T2 newPart) where T2 : CarPart {}
 
+        
     }
 
-    class GasEngine
-    {
+    class Engine { }
+    
+    class ElectricEngine : Engine { }
 
-    }
+    class GasEngine : Engine { }
 
-    class Battery 
-    {
+    class CarPart { }
+    class Battery : CarPart { }
 
-    }
+    class Differential : CarPart { }
 
-    class Differential 
-    {
-
-    }
-
-    class Wheel
-    {
-
-    }
+    class Wheel : CarPart { }
 
     class Program
     {
