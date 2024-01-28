@@ -14,9 +14,10 @@ namespace Modul7OOP
         public T2 Note;
         public DateTime Date;
     }
-    class Car<T>
+    class Car<T1>
     {
-        public T Engine = default(T); //значение по умолчанию null для ссылочных типов и 0 для значимых типов
+        public T1 Engine = default(T1); //значение по умолчанию null для ссылочных типов и 0 для значимых типов
+        public virtual void ChangePart<T2>(T2 newPart) {}
     }
     
     class ElectricEngine
@@ -25,6 +26,21 @@ namespace Modul7OOP
     }
 
     class GasEngine
+    {
+
+    }
+
+    class Battery 
+    {
+
+    }
+
+    class Differential 
+    {
+
+    }
+
+    class Wheel
     {
 
     }
