@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Modul7OOP
 {
     
-    class Car<TEngine> 
+    abstract class Car<TEngine> 
         where TEngine : Engine
     {
         public TEngine Engine;
@@ -17,13 +17,29 @@ namespace Modul7OOP
                
     }
 
-    class Engine { }
+    class ElectricCar : Car<ElectricEngine> 
+    {
+        public override void ChangePart<TPart>(TPart newPart)
+        {
+            base.ChangePart(newPart);
+        }
+    }
+    
+    class GasCar : Car<GasEngine> 
+    {
+        public override void ChangePart<TPart>(TPart newPart)
+        {
+            base.ChangePart(newPart);
+        }
+    }
+
+    abstract class Engine { }
     
     class ElectricEngine : Engine { }
 
     class GasEngine : Engine { }
 
-    class CarPart { }
+    abstract class CarPart { }
     class Battery : CarPart { }
 
     class Differential : CarPart { }
