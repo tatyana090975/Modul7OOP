@@ -56,29 +56,38 @@ namespace Modul7OOP
     {
         public TDelivery Delivery;
 
-        public int id;
-
-        public string Product;
+        //public int id;
+        public ProductList productName;
         public double Quantity;
-        public double Prise;
+        public decimal Prise;
         public decimal SumPrice;
-        public string Customer;
+        public CustomerList customerName;
+
+        public Order(TDelivery Delivery, ProductList productName, double Quantity, decimal Prise, decimal SumPrice, CustomerList customerName)
+        {
+            this.Delivery = Delivery;
+            this.productName = productName;
+            this.Quantity = Quantity;
+            this.Prise = Prise;
+            this.SumPrice = SumPrice;
+            this.customerName = customerName;
+        }
         
         public void DisplayAddress()
         {
             //Console.WriteLine(Delivery.);
         }
 
-        // ... Другие поля
+
+
+        
     }
 
     abstract class General 
-    {
-        //public int id;
+    {        
         public string Name;
         public General(string Name)
-        {
-            //this.id = id;
+        {            
             this.Name = Name;
         }
     }
@@ -89,21 +98,21 @@ namespace Modul7OOP
         public decimal SallingPrice;
         public string MeasureUnit;
         public string Description;
-        public string Provider;
-        public Product(string Name, decimal PurchasePrice, decimal SallingPrice, string MeasureUnit, string Description, string Provider) : base(Name)
+        public ProviderList Provider;
+        public Product(string Name, decimal PurchasePrice, decimal SallingPrice, string MeasureUnit, string Description, List<ProviderList> Provider) : base(Name)
         {
             this.PurchasePrice = PurchasePrice;
             this.SallingPrice = SallingPrice;
             this.MeasureUnit = MeasureUnit;
             this.Description = Description;
-            this.Provider = Provider;
+            this.Provider = new ProviderList();
     }
     }
 
     class Provider : General
     {        
-        private string Phone;
-        private string Contact;
+        public string Phone;
+        public string Contact;
         public Provider(string Name, string Phone, string Contact) : base(Name)
         {
             this.Phone = Phone;
@@ -124,34 +133,104 @@ namespace Modul7OOP
 
     class GeneralList 
     {
-        public static int id;
-        //public List<Object> list;
-        public GeneralList(int ID /*List<object> list*/)
-        {
-            id = ID;
-            //this.list = new List<Object>();
-        }
+        public static int id;             
         
+        public GeneralList(int ID)
+        {
+            id = ID;            
+        }
     }
 
     class CustomerList : GeneralList
     {
         public List<Customer> customerList;
-        public CustomerList(List<Customer> customerList) : base(id)
+        public CustomerList() : base(id)
+        {            
+            customerList = new List<Customer>();
+        }
+        
+        public void AddToCustomer(Customer customer)
+        {            
+            customerList.Add(customer);           
+        }
+
+        public void PrintCustomerList(CustomerList cl)
+        {            
+            foreach (var c in cl.customerList)
+            {
+                id = customerList.IndexOf(c) + 1;
+                Console.WriteLine($"{id} {c.Name} {c.Address} {c.Phone}");
+            }
+        }
+        public int GetID(Customer customer)
         {
-            this.customerList = new List<Customer>();
+            {
+                id = customerList.IndexOf(customer) + 1;
+                return id;
+            }
         }
     }
-/*
+
     class ProductList : GeneralList
     {
-        //public Product MyProduct = new Product(1);
+        public List<Product> productList;
+        public ProductList() : base(id)
+        {
+            productList = new List<Product>();
+        }
+
+        public void AddToProduct(Product product)
+        {
+            productList.Add(product);
+        }
+
+        public void PrintProductList(ProductList pl)
+        {
+            foreach (var c in pl.productList)
+            {
+                id = productList.IndexOf(c) + 1;
+                Console.WriteLine($"{id} {c.Name} {c.PurchasePrice} {c.MeasureUnit} {c.SallingPrice} {c.Description} {c.Provider}");
+            } 
+        }
+
+        public int GetID(Product product)
+        {
+            {
+                id = productList.IndexOf(product) + 1;
+                return id;
+            }
+        }
     }
 
     class ProviderList : GeneralList
     {
-        //public Provider MyProvider = new Provider();
-    }*/
+        public List<Provider> providerList;
+        public ProviderList() : base(id)
+        {
+            providerList = new List<Provider>();
+        }
+
+        public void AddToProvider(Provider provider)
+        {
+            providerList.Add(provider);
+        }
+
+        public void PrintProviderList(ProviderList pr)
+        {
+            foreach (var c in pr.providerList)
+            {
+                id = providerList.IndexOf(c) + 1;
+                Console.WriteLine($"{id} {c.Name} {c.Phone} {c.Contact}");
+            }
+        }
+        public int GetID(Provider provider)
+        {
+            { 
+                id = providerList.IndexOf(provider) + 1;
+                return id;
+            }
+        }
+    }
 
     class Program
     {
@@ -159,13 +238,19 @@ namespace Modul7OOP
         
         static void Main(string[] args)
         {
-            //Product prod1 = new Product();
+            
             //prod1.id = 1;
             //Console.WriteLine(prod1.id);
             //HomeDelivery home = new HomeDelivery(12, "Кудыкина гора", "Иванов", "ООО Кривое колесо");
-            Customer cust1 = new Customer("Ромашка", "Далеко", "3223322");
+            CustomerList cl1 = new CustomerList();
+            Customer cust1 = new Customer("Ромашка", "Далеко", "3223322");            
             Customer cust2 = new Customer("Цветочек", "За горой", "459876");
-            //Console.WriteLine(cust2);
+
+            cl1.AddToCustomer(cust1);
+            cl1.AddToCustomer(cust2);
+            //cl1.PrintCustomerList(cl1);
+            Console.WriteLine(cl1.GetID(cust1));
+            
 
             //Console.WriteLine(home.Address);
             
